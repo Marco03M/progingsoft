@@ -1,21 +1,19 @@
 class Reparto:
-       def __init__(self, nome, numero_dipendenti, budget):
-         self.nome = nome
-         self.numero_dipendenti = numero_dipendenti
-         self.budget = budget
+    def __init__(self, nome, num_dipendenti):
+        self.nome = nome
+        self.num_dipendenti = int(num_dipendenti)
+        #self.budget = int(budget)
 
-       def aggiungi_dipendente(self, nuovo_numero):
-         self.numero_dipendenti = nuovo_numero
+    def aggiungi_dipendenti(self, nuovo_numero):
+        self.num_dipendenti = int(nuovo_numero)
 
-       def diminuisci_budget(self, budget_tot):
-           self.budget=budget_tot
+nome_reparto=input("inserisci nome reparto:")
+num_dipendenti=int(input("inserisci numero iniziale di dipendenti:"))
+nuovo_numero=int(input("numero dipendenti ingaggiati:"))
 
-reparto = Reparto("Vendite", 10, 50)
-print("Numero di dipendenti e budget disponibile prima dell'aggiornamento:", reparto.numero_dipendenti, reparto.budget)
+num_dipendenti=num_dipendenti+nuovo_numero
 
-nuovo_numero_dipendenti = 50
-budget_rimasto=30
-reparto.aggiungi_dipendente(nuovo_numero_dipendenti)
-reparto.diminuisci_budget(budget_rimasto)
+reparto = Reparto(nome_reparto, num_dipendenti)
 
-print("Numero di dipendenti dopo l'aggiornamento e budget rimasto:", reparto.numero_dipendenti, reparto.budget)
+print("Nome del reparto:", reparto.nome)
+print("Numero di dipendenti:", reparto.num_dipendenti)
