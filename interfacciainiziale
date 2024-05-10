@@ -1,0 +1,53 @@
+import tkinter as tk
+from tkinter import messagebox
+
+credenziali_team = [("team1", "password1"), ("team2", "password2")]
+credenziali_gara = [("user1", "pass1"), ("user2", "pass2")]
+
+def access_team():
+    username = username_entry.get()
+    password = password_entry.get()
+    for credenziale in credenziali_team:
+        if username == credenziale[0] and password == credenziale[1]:
+            messagebox.showinfo("Accesso al reparto del team", "Benvenuto nel reparto del team!")
+            return
+    messagebox.showerror("Errore", "Credenziali del team non valide.")
+    # Qui dovresti inserire il codice per verificare le credenziali del team
+    # Se le credenziali sono corrette, puoi aprire l'accesso al reparto del team
+    # Altrimenti, mostra un messaggio di errore
+def access_race():
+    username = username_entry.get()
+    password = password_entry.get()
+    for credenziale in credenziali_gara:
+        if username == credenziale[0] and password == credenziale[1]:
+            messagebox.showinfo("Accesso alla gara", "Benvenuto alla gara!")
+            return
+    messagebox.showerror("Errore", "Credenziali della gara non valide.")
+    # Qui dovresti inserire il codice per verificare le credenziali della gara
+    # Se le credenziali sono corrette, puoi aprire l'accesso alla gara
+    # Altrimenti, mostra un messaggio di errore
+
+# Creazione della finestra principale
+root = tk.Tk()
+root.title("Accesso")
+
+# Etichetta e campo di inserimento per il nome utente
+username_label = tk.Label(root, text="Nome utente:")
+username_label.grid(row=0, column=0, sticky="w")
+username_entry = tk.Entry(root)
+username_entry.grid(row=0, column=1)
+
+# Etichetta e campo di inserimento per la password
+password_label = tk.Label(root, text="Password:")
+password_label.grid(row=1, column=0, sticky="w")
+password_entry = tk.Entry(root, show="*")
+password_entry.grid(row=1, column=1)
+
+# Bottoni per l'accesso al reparto del team e alla gara
+team_button = tk.Button(root, text="Accesso al reparto del team", command=access_team)
+team_button.grid(row=2, column=0, pady=5)
+race_button = tk.Button(root, text="Accesso alla gara", command=access_race)
+race_button.grid(row=2, column=1, pady=5)
+
+# Avvio del loop di eventi
+root.mainloop()
